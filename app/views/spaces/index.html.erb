@@ -27,7 +27,7 @@
 
       <% @spaces.each do |space| %>
       <tr>
-        <td><%= space.landlord_id %></td>
+        <td><%= space.landlord.created_at %></td>
         <td><%= space.size %></td>
         <td><%= space.notes %></td>
         <td><%= space.summary %></td>
