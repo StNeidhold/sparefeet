@@ -6,6 +6,8 @@ class SpacesController < ApplicationController
   end
 
   def show
+    @space_photo = SpacePhoto.new
+    @rental = Rental.new
     @space = Space.find(params[:id])
 
     render("spaces/show.html.erb")

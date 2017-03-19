@@ -87,6 +87,41 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_rental" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for renter_id -->
+      <input type="hidden" name="renter_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for landlord_id -->
+      <div class="form-group">
+        <label for="landlord_id" class="control-label">
+          Landlord
+        </label>
+
+        <%= select_tag(:landlord_id, options_from_collection_for_select(Steward.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for monthly_rate -->
+      <div class="form-group">
+        <label for="monthly_rate" class="control-label">
+          Monthly rate
+        </label>
+
+        <input type="text" id="monthly_rate" name="monthly_rate" placeholder="Monthly rate" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for space_id -->
+      <input type="hidden" name="space_id" value="<%= @space.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Rental
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -118,6 +153,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_space_photo" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for landlord_id -->
+      <div class="form-group">
+        <label for="landlord_id" class="control-label">
+          Landlord
+        </label>
+
+        <%= select_tag(:landlord_id, options_from_collection_for_select(Steward.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for space_id -->
+      <input type="hidden" name="space_id" value="<%= @space.id %>">
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="file" id="photo" name="photo" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Space Photo
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
