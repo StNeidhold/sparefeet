@@ -1,6 +1,8 @@
 class Renter < ApplicationRecord
   # Direct associations
 
+  has_many   :review_of_landlords
+
   has_many   :review_of_renters,
              :dependent => :destroy
 
