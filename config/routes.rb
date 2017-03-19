@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Review_of_landlord resource:
+  # CREATE
+  get "/review_of_landlords/new", :controller => "review_of_landlords", :action => "new"
+  post "/create_review_of_landlord", :controller => "review_of_landlords", :action => "create"
+
+  # READ
+  get "/review_of_landlords", :controller => "review_of_landlords", :action => "index"
+  get "/review_of_landlords/:id", :controller => "review_of_landlords", :action => "show"
+
+  # UPDATE
+  get "/review_of_landlords/:id/edit", :controller => "review_of_landlords", :action => "edit"
+  post "/update_review_of_landlord/:id", :controller => "review_of_landlords", :action => "update"
+
+  # DELETE
+  get "/delete_review_of_landlord/:id", :controller => "review_of_landlords", :action => "destroy"
+  #------------------------------
+
   # Routes for the Review_of_renter resource:
   # CREATE
   get "/review_of_renters/new", :controller => "review_of_renters", :action => "new"
