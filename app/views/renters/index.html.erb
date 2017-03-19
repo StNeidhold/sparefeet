@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Renters
+    <a href="/renters/new" class="btn btn-lg btn-success">New Renter</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Telephone</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @renters.each do |renter| %>
+      <tr>
+        <td><%= renter.email %></td>
+        <td><%= renter.password %></td>
+        <td><%= renter.first_name %></td>
+        <td><%= renter.last_name %></td>
+        <td><%= renter.telephone %></td>
+        <td>
+          <a href="/renters/<%= renter.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
