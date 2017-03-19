@@ -18,7 +18,7 @@
 
       <% @rentals.each do |rental| %>
       <tr>
-        <td><%= rental.renter_id %></td>
+        <td><%= rental.renter.created_at %></td>
         <td><%= rental.landlord_id %></td>
         <td><%= rental.monthly_rate %></td>
         <td><%= rental.space_id %></td>
