@@ -1,6 +1,11 @@
 class Steward < ApplicationRecord
   # Direct associations
 
+  has_many   :offerring_photos,
+             :class_name => "SpacePhoto",
+             :foreign_key => "landlord_id",
+             :dependent => :destroy
+
   has_many   :review_of_landlords,
              :foreign_key => "landlord_id",
              :dependent => :destroy
