@@ -1,0 +1,142 @@
+<!-- Validation failure messages -->
+<% if @space.errors.any? %>
+  <% @space.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Space</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_space" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for landlord_id -->
+      <div class="form-group">
+        <label for="landlord_id" class="control-label">
+          Landlord
+        </label>
+
+        <input type="text" id="landlord_id" name="landlord_id" placeholder="Landlord" class="form-control" value="<%= @space.landlord_id %>">
+      </div>
+
+      <!-- Label and input for size -->
+      <div class="form-group">
+        <label for="size" class="control-label">
+          Size
+        </label>
+
+        <input type="text" id="size" name="size" placeholder="Size" class="form-control" value="<%= @space.size %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @space.notes %>">
+      </div>
+
+      <!-- Label and input for summary -->
+      <div class="form-group">
+        <label for="summary" class="control-label">
+          Summary
+        </label>
+
+        <input type="text" id="summary" name="summary" placeholder="Summary" class="form-control" value="<%= @space.summary %>">
+      </div>
+
+      <!-- Label and input for allow_boxes -->
+      <div class="checkbox">
+        <label for="allow_boxes">
+          <input type="checkbox" id="allow_boxes" name="allow_boxes" value="1" <%= "checked" if @space.allow_boxes %>>
+          Allow boxes
+        </label>
+      </div>
+
+      <!-- Label and input for allow_furniture -->
+      <div class="checkbox">
+        <label for="allow_furniture">
+          <input type="checkbox" id="allow_furniture" name="allow_furniture" value="1" <%= "checked" if @space.allow_furniture %>>
+          Allow furniture
+        </label>
+      </div>
+
+      <!-- Label and input for allow_sporting_goods -->
+      <div class="checkbox">
+        <label for="allow_sporting_goods">
+          <input type="checkbox" id="allow_sporting_goods" name="allow_sporting_goods" value="1" <%= "checked" if @space.allow_sporting_goods %>>
+          Allow sporting goods
+        </label>
+      </div>
+
+      <!-- Label and input for street_address -->
+      <div class="form-group">
+        <label for="street_address" class="control-label">
+          Street address
+        </label>
+
+        <input type="text" id="street_address" name="street_address" placeholder="Street address" class="form-control" value="<%= @space.street_address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @space.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @space.state %>">
+      </div>
+
+      <!-- Label and input for availability_date -->
+      <div class="form-group">
+        <label for="availability_date" class="control-label">
+          Availability date
+        </label>
+
+        <input type="text" id="availability_date" name="availability_date" placeholder="Availability date" class="form-control" value="<%= @space.availability_date %>">
+      </div>
+
+      <!-- Label and input for min_term -->
+      <div class="form-group">
+        <label for="min_term" class="control-label">
+          Min term
+        </label>
+
+        <input type="text" id="min_term" name="min_term" placeholder="Min term" class="form-control" value="<%= @space.min_term %>">
+      </div>
+
+      <!-- Label and input for dimensions -->
+      <div class="form-group">
+        <label for="dimensions" class="control-label">
+          Dimensions
+        </label>
+
+        <input type="text" id="dimensions" name="dimensions" placeholder="Dimensions" class="form-control" value="<%= @space.dimensions %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Space
+      </button>
+      or
+      <a href="/spaces">Cancel</a>
+    </form>
+  </div>
+</div>
