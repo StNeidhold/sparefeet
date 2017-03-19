@@ -19,7 +19,7 @@
       <tr>
         <td><%= space_photo.landlord.created_at %></td>
         <td><%= space_photo.offerring.landlord_id %></td>
-        <td><%= space_photo.photo %></td>
+        <td><img src='<%= space_photo.photo %>' class='img-responsive'></td>
         <td>
           <a href="/space_photos/<%= space_photo.id %>" class="btn btn-primary">Show</a>
           <a href="/space_photos/<%= space_photo.id %>/edit" class="btn btn-warning">Edit</a>
