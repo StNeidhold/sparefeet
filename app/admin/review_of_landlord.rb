@@ -1,5 +1,7 @@
 ActiveAdmin.register ReviewOfLandlord do
 
+ permit_params :renter_id, :landlord_id, :rental_id, :landlord_rating, :landlord_notes, :landlord_response
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
