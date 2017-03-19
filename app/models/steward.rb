@@ -1,6 +1,11 @@
 class Steward < ApplicationRecord
   # Direct associations
 
+  has_many   :offerrings,
+             :class_name => "Space",
+             :foreign_key => "landlord_id",
+             :dependent => :destroy
+
   has_many   :rentals,
              :foreign_key => "landlord_id",
              :dependent => :destroy
