@@ -1,6 +1,10 @@
 class Steward < ApplicationRecord
   # Direct associations
 
+  has_many   :rentals,
+             :foreign_key => "landlord_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
