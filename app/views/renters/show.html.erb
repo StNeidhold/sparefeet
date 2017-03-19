@@ -29,3 +29,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Renter has many rentals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Rentals
+      </li>
+
+      <% @renter.rentals.each do |rental| %>
+        <li class="list-group-item">
+          <a href="/rentals/<%= rental.id %>">
+            <%= rental.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rentals/<%= rental.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Renter has many review_of_renters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Review Of Renters
+      </li>
+
+      <% @renter.review_of_renters.each do |review_of_renter| %>
+        <li class="list-group-item">
+          <a href="/review_of_renters/<%= review_of_renter.id %>">
+            <%= review_of_renter.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/review_of_renters/<%= review_of_renter.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/review_of_renters/<%= review_of_renter.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_review_of_renter/<%= review_of_renter.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Renter has many review_of_landlords -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Review Of Landlords
+      </li>
+
+      <% @renter.review_of_landlords.each do |review_of_landlord| %>
+        <li class="list-group-item">
+          <a href="/review_of_landlords/<%= review_of_landlord.id %>">
+            <%= review_of_landlord.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/review_of_landlords/<%= review_of_landlord.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/review_of_landlords/<%= review_of_landlord.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_review_of_landlord/<%= review_of_landlord.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

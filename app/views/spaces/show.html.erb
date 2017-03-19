@@ -59,3 +59,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Space has many rentals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Rentals
+      </li>
+
+      <% @space.rentals.each do |rental| %>
+        <li class="list-group-item">
+          <a href="/rentals/<%= rental.id %>">
+            <%= rental.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rentals/<%= rental.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Space has many offerring_photos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offerring Photos
+      </li>
+
+      <% @space.offerring_photos.each do |space_photo| %>
+        <li class="list-group-item">
+          <a href="/space_photos/<%= space_photo.id %>">
+            <%= space_photo.landlord_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/space_photos/<%= space_photo.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/space_photos/<%= space_photo.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_space_photo/<%= space_photo.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -26,3 +26,158 @@
     </div>
   </div>
 </div>
+
+<!-- A Steward has many rentals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Rentals
+      </li>
+
+      <% @steward.rentals.each do |rental| %>
+        <li class="list-group-item">
+          <a href="/rentals/<%= rental.id %>">
+            <%= rental.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rentals/<%= rental.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Steward has many offerrings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offerrings
+      </li>
+
+      <% @steward.offerrings.each do |space| %>
+        <li class="list-group-item">
+          <a href="/spaces/<%= space.id %>">
+            <%= space.landlord_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/spaces/<%= space.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/spaces/<%= space.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_space/<%= space.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Steward has many review_of_renters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Review Of Renters
+      </li>
+
+      <% @steward.review_of_renters.each do |review_of_renter| %>
+        <li class="list-group-item">
+          <a href="/review_of_renters/<%= review_of_renter.id %>">
+            <%= review_of_renter.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/review_of_renters/<%= review_of_renter.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/review_of_renters/<%= review_of_renter.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_review_of_renter/<%= review_of_renter.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Steward has many review_of_landlords -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Review Of Landlords
+      </li>
+
+      <% @steward.review_of_landlords.each do |review_of_landlord| %>
+        <li class="list-group-item">
+          <a href="/review_of_landlords/<%= review_of_landlord.id %>">
+            <%= review_of_landlord.renter_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/review_of_landlords/<%= review_of_landlord.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/review_of_landlords/<%= review_of_landlord.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_review_of_landlord/<%= review_of_landlord.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Steward has many offerring_photos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offerring Photos
+      </li>
+
+      <% @steward.offerring_photos.each do |space_photo| %>
+        <li class="list-group-item">
+          <a href="/space_photos/<%= space_photo.id %>">
+            <%= space_photo.landlord_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/space_photos/<%= space_photo.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/space_photos/<%= space_photo.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_space_photo/<%= space_photo.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
