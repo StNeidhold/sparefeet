@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "rentals#index"
   # Routes for the Space_photo resource:
   # CREATE
   get "/space_photos/new", :controller => "space_photos", :action => "new"
