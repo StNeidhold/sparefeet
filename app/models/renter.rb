@@ -1,6 +1,9 @@
 class Renter < ApplicationRecord
   # Direct associations
 
+  has_many   :rentals,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
