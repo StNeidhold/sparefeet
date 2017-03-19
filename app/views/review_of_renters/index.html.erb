@@ -20,7 +20,7 @@
 
       <% @review_of_renters.each do |review_of_renter| %>
       <tr>
-        <td><%= review_of_renter.renter_id %></td>
+        <td><%= review_of_renter.renter.created_at %></td>
         <td><%= review_of_renter.landlord_id %></td>
         <td><%= review_of_renter.rental_id %></td>
         <td><%= review_of_renter.renter_rating %></td>
