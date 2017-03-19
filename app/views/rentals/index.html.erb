@@ -21,7 +21,7 @@
         <td><%= rental.renter.created_at %></td>
         <td><%= rental.landlord.created_at %></td>
         <td><%= rental.monthly_rate %></td>
-        <td><%= rental.space_id %></td>
+        <td><%= rental.offerring.landlord_id %></td>
         <td>
           <a href="/rentals/<%= rental.id %>" class="btn btn-primary">Show</a>
           <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">Edit</a>
