@@ -18,7 +18,7 @@
       <% @space_photos.each do |space_photo| %>
       <tr>
         <td><%= space_photo.landlord.created_at %></td>
-        <td><%= space_photo.space_id %></td>
+        <td><%= space_photo.offerring.landlord_id %></td>
         <td><%= space_photo.photo %></td>
         <td>
           <a href="/space_photos/<%= space_photo.id %>" class="btn btn-primary">Show</a>
