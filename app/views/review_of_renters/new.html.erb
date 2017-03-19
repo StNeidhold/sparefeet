@@ -42,7 +42,7 @@
           Rental
         </label>
 
-        <input type="text" id="rental_id" name="rental_id" placeholder="Rental" class="form-control" value="<%= @review_of_renter.rental_id %>">
+        <%= select_tag(:rental_id, options_from_collection_for_select(Rental.all, :id, :renter_id, @review_of_renter.rental_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for renter_rating -->
