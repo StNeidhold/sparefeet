@@ -1,5 +1,7 @@
 ActiveAdmin.register Steward do
 
+ permit_params :telephone, :first_name, :last_name, :password
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
