@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :current_user_must_be_rental_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_rental_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_rental_renter
     rental = Rental.find(params[:id])
