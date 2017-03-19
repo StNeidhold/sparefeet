@@ -17,8 +17,20 @@
 
       <% @space_photos.each do |space_photo| %>
       <tr>
-        <td><%= space_photo.landlord.created_at %></td>
-        <td><%= space_photo.offerring.landlord_id %></td>
+        <td>
+          <% if space_photo.landlord.present? %>
+            <a href="/stewards/<%= space_photo.landlord.id %>">
+              <%= space_photo.landlord.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if space_photo.offerring.present? %>
+            <a href="/spaces/<%= space_photo.offerring.id %>">
+              <%= space_photo.offerring.landlord_id %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= space_photo.photo %>' class='img-responsive'></td>
         <td>
           <a href="/space_photos/<%= space_photo.id %>" class="btn btn-primary">Show</a>

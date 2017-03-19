@@ -18,10 +18,28 @@
 
       <% @rentals.each do |rental| %>
       <tr>
-        <td><%= rental.renter.created_at %></td>
-        <td><%= rental.landlord.created_at %></td>
+        <td>
+          <% if rental.renter.present? %>
+            <a href="/renters/<%= rental.renter.id %>">
+              <%= rental.renter.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if rental.landlord.present? %>
+            <a href="/stewards/<%= rental.landlord.id %>">
+              <%= rental.landlord.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= rental.monthly_rate %></td>
-        <td><%= rental.offerring.landlord_id %></td>
+        <td>
+          <% if rental.offerring.present? %>
+            <a href="/spaces/<%= rental.offerring.id %>">
+              <%= rental.offerring.landlord_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/rentals/<%= rental.id %>" class="btn btn-primary">Show</a>
           

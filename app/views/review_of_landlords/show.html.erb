@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Renter</dt>
-      <dd><%= @review_of_landlord.renter_id %></dd>
+      <dd>
+        <% if @review_of_landlord.renter.present? %>
+          <a href="/renters/<%= @review_of_landlord.renter_id %>">
+            <%= @review_of_landlord.renter.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Landlord</dt>
-      <dd><%= @review_of_landlord.landlord_id %></dd>
+      <dd>
+        <% if @review_of_landlord.landlord.present? %>
+          <a href="/stewards/<%= @review_of_landlord.landlord_id %>">
+            <%= @review_of_landlord.landlord.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Rental</dt>
-      <dd><%= @review_of_landlord.rental_id %></dd>
+      <dd>
+        <% if @review_of_landlord.rental.present? %>
+          <a href="/rentals/<%= @review_of_landlord.rental_id %>">
+            <%= @review_of_landlord.rental.renter_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Landlord rating</dt>
       <dd><%= @review_of_landlord.landlord_rating %></dd>

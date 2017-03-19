@@ -27,7 +27,13 @@
 
       <% @spaces.each do |space| %>
       <tr>
-        <td><%= space.landlord.created_at %></td>
+        <td>
+          <% if space.landlord.present? %>
+            <a href="/stewards/<%= space.landlord.id %>">
+              <%= space.landlord.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= space.size %></td>
         <td><%= space.notes %></td>
         <td><%= space.summary %></td>

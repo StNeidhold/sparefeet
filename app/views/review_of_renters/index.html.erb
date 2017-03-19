@@ -20,9 +20,27 @@
 
       <% @review_of_renters.each do |review_of_renter| %>
       <tr>
-        <td><%= review_of_renter.renter.created_at %></td>
-        <td><%= review_of_renter.landlord.created_at %></td>
-        <td><%= review_of_renter.rental.renter_id %></td>
+        <td>
+          <% if review_of_renter.renter.present? %>
+            <a href="/renters/<%= review_of_renter.renter.id %>">
+              <%= review_of_renter.renter.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if review_of_renter.landlord.present? %>
+            <a href="/stewards/<%= review_of_renter.landlord.id %>">
+              <%= review_of_renter.landlord.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if review_of_renter.rental.present? %>
+            <a href="/rentals/<%= review_of_renter.rental.id %>">
+              <%= review_of_renter.rental.renter_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= review_of_renter.renter_rating %></td>
         <td><%= review_of_renter.renter_notes %></td>
         <td><%= review_of_renter.renter_response %></td>
