@@ -33,7 +33,7 @@
           Landlord
         </label>
 
-        <input type="text" id="landlord_id" name="landlord_id" placeholder="Landlord" class="form-control" value="<%= @review_of_renter.landlord_id %>">
+        <%= select_tag(:landlord_id, options_from_collection_for_select(Steward.all, :id, :created_at, @review_of_renter.landlord_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for rental_id -->
