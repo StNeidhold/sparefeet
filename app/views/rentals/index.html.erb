@@ -24,8 +24,11 @@
         <td><%= rental.offerring.landlord_id %></td>
         <td>
           <a href="/rentals/<%= rental.id %>" class="btn btn-primary">Show</a>
-          <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == rental.renter %>
+            <a href="/rentals/<%= rental.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_rental/<%= rental.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

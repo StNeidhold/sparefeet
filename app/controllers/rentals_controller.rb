@@ -1,4 +1,14 @@
 class RentalsController < ApplicationController
+  before_action :current_user_must_be_rental_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_rental_renter
+    rental = Rental.find(params[:id])
+
+    unless current_user == rental.renter
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @rentals = Rental.all
 
