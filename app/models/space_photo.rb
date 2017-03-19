@@ -1,6 +1,11 @@
 class SpacePhoto < ApplicationRecord
   # Direct associations
 
+  belongs_to :offerring,
+             :class_name => "Space",
+             :foreign_key => "space_id",
+             :counter_cache => :offerring_photos_count
+
   belongs_to :landlord,
              :class_name => "Steward"
 
