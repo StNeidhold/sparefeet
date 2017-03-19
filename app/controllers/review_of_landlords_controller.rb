@@ -1,4 +1,14 @@
 class ReviewOfLandlordsController < ApplicationController
+  before_action :current_user_must_be_review_of_landlord_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_review_of_landlord_renter
+    review_of_landlord = ReviewOfLandlord.find(params[:id])
+
+    unless current_user == review_of_landlord.renter
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @review_of_landlords = ReviewOfLandlord.all
 

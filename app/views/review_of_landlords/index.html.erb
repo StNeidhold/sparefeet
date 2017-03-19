@@ -28,8 +28,11 @@
         <td><%= review_of_landlord.landlord_response %></td>
         <td>
           <a href="/review_of_landlords/<%= review_of_landlord.id %>" class="btn btn-primary">Show</a>
-          <a href="/review_of_landlords/<%= review_of_landlord.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_review_of_landlord/<%= review_of_landlord.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == review_of_landlord.renter %>
+            <a href="/review_of_landlords/<%= review_of_landlord.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_review_of_landlord/<%= review_of_landlord.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
