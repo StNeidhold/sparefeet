@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :stewards
+  # Routes for the Steward resource:
+  # READ
+  get "/stewards", :controller => "stewards", :action => "index"
+  get "/stewards/:id", :controller => "stewards", :action => "show"
+
+
   devise_for :renters
   # Routes for the Renter resource:
   # READ

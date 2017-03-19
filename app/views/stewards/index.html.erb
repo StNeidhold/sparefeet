@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Stewards
+    <a href="/stewards/new" class="btn btn-lg btn-success">New Steward</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Telephone</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Password</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @stewards.each do |steward| %>
+      <tr>
+        <td><%= steward.telephone %></td>
+        <td><%= steward.first_name %></td>
+        <td><%= steward.last_name %></td>
+        <td><%= steward.password %></td>
+        <td>
+          <a href="/stewards/<%= steward.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
