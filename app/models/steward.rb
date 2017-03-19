@@ -1,6 +1,9 @@
 class Steward < ApplicationRecord
   # Direct associations
 
+  has_many   :review_of_renters,
+             :foreign_key => "landlord_id"
+
   has_many   :offerrings,
              :class_name => "Space",
              :foreign_key => "landlord_id",
