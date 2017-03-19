@@ -10,7 +10,8 @@ class ReviewOfLandlordsController < ApplicationController
   end
 
   def index
-    @review_of_landlords = ReviewOfLandlord.page(params[:page]).per(10)
+    @q = ReviewOfLandlord.ransack(params[:q])
+    @review_of_landlords = @q.result(:distinct => true).includes(:renter, :landlord, :rental).page(params[:page]).per(10)
 
     render("review_of_landlords/index.html.erb")
   end

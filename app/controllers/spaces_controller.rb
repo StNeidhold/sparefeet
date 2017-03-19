@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.page(params[:page]).per(10)
+    @q = Space.ransack(params[:q])
+    @spaces = @q.result(:distinct => true).includes(:landlord, :rentals, :offerring_photos).page(params[:page]).per(10)
 
     render("spaces/index.html.erb")
   end

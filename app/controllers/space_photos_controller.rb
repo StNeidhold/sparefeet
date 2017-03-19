@@ -1,6 +1,7 @@
 class SpacePhotosController < ApplicationController
   def index
-    @space_photos = SpacePhoto.page(params[:page]).per(10)
+    @q = SpacePhoto.ransack(params[:q])
+    @space_photos = @q.result(:distinct => true).includes(:landlord, :offerring).page(params[:page]).per(10)
 
     render("space_photos/index.html.erb")
   end
