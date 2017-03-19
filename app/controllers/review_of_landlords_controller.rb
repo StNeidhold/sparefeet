@@ -10,7 +10,7 @@ class ReviewOfLandlordsController < ApplicationController
   end
 
   def index
-    @review_of_landlords = ReviewOfLandlord.all
+    @review_of_landlords = ReviewOfLandlord.page(params[:page]).per(10)
 
     render("review_of_landlords/index.html.erb")
   end

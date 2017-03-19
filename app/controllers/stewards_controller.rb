@@ -1,6 +1,6 @@
 class StewardsController < ApplicationController
   def index
-    @stewards = Steward.all
+    @stewards = Steward.page(params[:page]).per(10)
   end
 
   def show

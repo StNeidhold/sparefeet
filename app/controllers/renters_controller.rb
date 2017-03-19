@@ -1,6 +1,6 @@
 class RentersController < ApplicationController
   def index
-    @renters = Renter.all
+    @renters = Renter.page(params[:page]).per(10)
   end
 
   def show

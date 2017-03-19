@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.all
+    @spaces = Space.page(params[:page]).per(10)
 
     render("spaces/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class SpacePhotosController < ApplicationController
   def index
-    @space_photos = SpacePhoto.all
+    @space_photos = SpacePhoto.page(params[:page]).per(10)
 
     render("space_photos/index.html.erb")
   end
