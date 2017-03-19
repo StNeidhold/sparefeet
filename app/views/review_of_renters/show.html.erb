@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Review Of Renter #<%= @review_of_renter.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Renter</dt>
+      <dd><%= @review_of_renter.renter_id %></dd>
+
+      <dt>Landlord</dt>
+      <dd><%= @review_of_renter.landlord_id %></dd>
+
+      <dt>Rental</dt>
+      <dd><%= @review_of_renter.rental_id %></dd>
+
+      <dt>Renter rating</dt>
+      <dd><%= @review_of_renter.renter_rating %></dd>
+
+      <dt>Renter notes</dt>
+      <dd><%= @review_of_renter.renter_notes %></dd>
+
+      <dt>Renter response</dt>
+      <dd><%= @review_of_renter.renter_response %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/review_of_renters" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/review_of_renters/<%= @review_of_renter.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_review_of_renter/<%= @review_of_renter.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

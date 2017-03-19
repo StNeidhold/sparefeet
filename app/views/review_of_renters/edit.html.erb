@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @review_of_renter.errors.any? %>
+  <% @review_of_renter.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Review Of Renter #<%= @review_of_renter.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_review_of_renter/<%= @review_of_renter.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for renter_id -->
+      <div class="form-group">
+        <label for="renter_id" class="control-label">
+          Renter
+        </label>
+
+        <input type="text" id="renter_id" name="renter_id" placeholder="Renter" class="form-control" value="<%= @review_of_renter.renter_id %>">
+      </div>
+
+      <!-- Label and input for landlord_id -->
+      <div class="form-group">
+        <label for="landlord_id" class="control-label">
+          Landlord
+        </label>
+
+        <input type="text" id="landlord_id" name="landlord_id" placeholder="Landlord" class="form-control" value="<%= @review_of_renter.landlord_id %>">
+      </div>
+
+      <!-- Label and input for rental_id -->
+      <div class="form-group">
+        <label for="rental_id" class="control-label">
+          Rental
+        </label>
+
+        <input type="text" id="rental_id" name="rental_id" placeholder="Rental" class="form-control" value="<%= @review_of_renter.rental_id %>">
+      </div>
+
+      <!-- Label and input for renter_rating -->
+      <div class="form-group">
+        <label for="renter_rating" class="control-label">
+          Renter rating
+        </label>
+
+        <input type="text" id="renter_rating" name="renter_rating" placeholder="Renter rating" class="form-control" value="<%= @review_of_renter.renter_rating %>">
+      </div>
+
+      <!-- Label and input for renter_notes -->
+      <div class="form-group">
+        <label for="renter_notes" class="control-label">
+          Renter notes
+        </label>
+
+        <input type="text" id="renter_notes" name="renter_notes" placeholder="Renter notes" class="form-control" value="<%= @review_of_renter.renter_notes %>">
+      </div>
+
+      <!-- Label and input for renter_response -->
+      <div class="form-group">
+        <label for="renter_response" class="control-label">
+          Renter response
+        </label>
+
+        <input type="text" id="renter_response" name="renter_response" placeholder="Renter response" class="form-control" value="<%= @review_of_renter.renter_response %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Review Of Renter
+      </button>
+      or
+      <a href="/review_of_renters/<%= @review_of_renter.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

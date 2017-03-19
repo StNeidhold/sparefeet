@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Review of renters
+    <a href="/review_of_renters/new" class="btn btn-lg btn-success">New Review of renter</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Renter</th>
+        <th>Landlord</th>
+        <th>Rental</th>
+        <th>Renter rating</th>
+        <th>Renter notes</th>
+        <th>Renter response</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @review_of_renters.each do |review_of_renter| %>
+      <tr>
+        <td><%= review_of_renter.renter_id %></td>
+        <td><%= review_of_renter.landlord_id %></td>
+        <td><%= review_of_renter.rental_id %></td>
+        <td><%= review_of_renter.renter_rating %></td>
+        <td><%= review_of_renter.renter_notes %></td>
+        <td><%= review_of_renter.renter_response %></td>
+        <td>
+          <a href="/review_of_renters/<%= review_of_renter.id %>" class="btn btn-primary">Show</a>
+          <a href="/review_of_renters/<%= review_of_renter.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_review_of_renter/<%= review_of_renter.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
